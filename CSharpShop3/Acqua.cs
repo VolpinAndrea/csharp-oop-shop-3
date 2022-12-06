@@ -54,21 +54,29 @@ namespace CSharpShop3
         }
         public void SetCapienza(double newCapienza)
         {
-            if (newCapienza >= 0 && newCapienza <= 1.5)
+            if (newCapienza < 0 || newCapienza > 2)
             {
-                this.capienza = newCapienza;
-            }
-            else if (newCapienza > 1.5)
-            {
-                Console.WriteLine("troppa acqua insrita, settato a 1,5 Litri");
-                this.capienza = 1.5;
+                throw new ArgumentOutOfRangeException("capienza noin valida");
             }
             else
             {
-                Console.WriteLine("numero acqua non valido inserito 0 Litri");
-                this.capienza = 0;
-
+                this.pH = newCapienza;
             }
+            //if (newCapienza >= 0 && newCapienza <= 1.5)
+            //{
+            //    this.capienza = newCapienza;
+            //}
+            //else if (newCapienza > 1.5)
+            //{
+            //    Console.WriteLine("troppa acqua insrita, settato a 1,5 Litri");
+            //    this.capienza = 1.5;
+            //}
+            //else
+            //{
+            //    Console.WriteLine("numero acqua non valido inserito 0 Litri");
+            //    this.capienza = 0;
+
+            //}
         }
 
         public void Bevi(double quanto)
