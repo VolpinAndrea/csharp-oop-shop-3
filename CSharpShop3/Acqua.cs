@@ -15,9 +15,11 @@ namespace CSharpShop3
         public Acqua(string nome, string descrizione, double prezzo, double iva, double capienza, double pH, string sorgente) : base(nome, descrizione, prezzo, iva)
         {
             SetCapienza(capienza);
-            this.pH = pH;
+            //this.pH = pH;
+            SetpH(pH);
             this.sorgente = sorgente;
         }
+        // GET
 
         public double GetCapienza()
         {
@@ -31,6 +33,21 @@ namespace CSharpShop3
         {
             return this.sorgente;
         }
+
+        // SET
+
+        public void SetpH(double newpH)
+        {
+            if (newpH < 0 || newpH > 10)
+            {
+                throw new ArgumentOutOfRangeException("ph non valido");
+            }
+            else
+            {
+                this.pH = newpH;
+            }
+        }
+
         public void SetSorgente(string newSorgente)
         {
             this.sorgente = newSorgente;
@@ -89,12 +106,12 @@ namespace CSharpShop3
             }
         }
 
-        public override void StampaTutto()
-        {
-            base.StampaTutto();
-            Console.WriteLine("Capienza:" + string.Format("{0:F1}", (this.capienza)) + "L | Sorgente: " + sorgente + " | pH " + pH);
-            Console.WriteLine("-----------------------------------");
-        }
+        //public override void StampaTutto()
+        //{
+        //    base.StampaTutto();
+        //    Console.WriteLine("Capienza:" + string.Format("{0:F1}", (this.capienza)) + "L | Sorgente: " + sorgente + " | pH " + pH);
+        //    Console.WriteLine("-----------------------------------");
+        //}
 
         public override string? ToString()
         {

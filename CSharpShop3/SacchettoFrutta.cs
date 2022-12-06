@@ -46,13 +46,13 @@ namespace CSharpShop3
                 Console.WriteLine("--Hai mangito il primo elemento del sacchetto");
             }
         }
-        public override void StampaTutto()
-        {
-            base.StampaTutto();
-            Console.WriteLine("Marca: " + marca);
-            Console.Write("Contiene: ");
-            StampaFruttiLista();
-        }
+        //public override void StampaTutto()
+        //{
+        //    base.StampaTutto();
+        //    Console.WriteLine("Marca: " + marca);
+        //    Console.Write("Contiene: ");
+        //    StampaFruttiLista();
+        //}
         private void StampaFruttiLista()
         {
             foreach (string frutto in this.frutti)
