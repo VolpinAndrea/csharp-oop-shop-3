@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +13,7 @@ namespace CSharpShop3
         private double capienza;
         public double pH;
         public string sorgente;
+        const double galloni = 3.785;
 
         public Acqua(string nome, string descrizione, double prezzo, double iva, double capienza, double pH, string sorgente) : base(nome, descrizione, prezzo, iva)
         {
@@ -102,6 +104,14 @@ namespace CSharpShop3
                 Console.WriteLine("--Hai riempito di " + quanto + "L, la bottiglia ora contiene " + string.Format("{0:F1}", this.capienza + quanto) + "L");
                 this.capienza = capienza + quanto;
             }
+        }
+        //public static double ConvertiInGalloni(double litri)
+        //{
+        //    return litri*3.785;
+        //}
+        public static double ConvertiInGalloni(double litri)
+        {
+            return litri * galloni;
         }
 
         public override string? ToString()

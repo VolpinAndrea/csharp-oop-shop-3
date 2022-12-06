@@ -13,11 +13,13 @@ namespace CSharpShop3
         private string descrizione;
         private double prezzo;
         private double iva;
+        public static int numero = 0;
 
         Random RandomClass = new Random();
         public Prodotto()
         {
             this.codice = RandomClass.Next(1, 10000);
+            conta();
         }
 
         public Prodotto(string nome, string descrizione, double prezzo, double iva) : this()
@@ -63,6 +65,10 @@ namespace CSharpShop3
         {
             return this.iva;
         }
+        public int GetNumero()
+        {
+            return numero;
+        }
         public void SetIva(double newIva)
         {
             this.iva = newIva;
@@ -76,6 +82,7 @@ namespace CSharpShop3
         {
             return this.codice + this.nome;
         }
+        public static void conta() => numero++;
 
         public override string? ToString()
         {

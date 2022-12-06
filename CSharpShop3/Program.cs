@@ -12,6 +12,8 @@ uno.Bevi(sete);
 Console.WriteLine("Di quanto vuoi riempire?");
 double aggiungi = double.Parse(Console.ReadLine());
 uno.Riempi(aggiungi);
+Console.WriteLine("Al momento ci sono: " + Acqua.ConvertiInGalloni(uno.GetCapienza()) + " Galloni");
+Console.WriteLine();
 
 
 
@@ -39,9 +41,36 @@ static Acqua? CreaBottiglia()
             Console.WriteLine(e.Message);
             Console.WriteLine("Reinserire i dati della bottiglia");
         }
-        //return null;
+       // return null;
 
     }
 }
+// NON CAPISCO L'ERORRE
+/*static Acqua? CreaBottigliaNoWhileTrue()
+{
+    Acqua bottle = null;
+    while (bottle != null) 
+    {
+        try
+        {
+            Console.WriteLine("Inserisci la capienza della bottiglia");
+            double capienzaUtente = double.Parse(Console.ReadLine());
+            Console.WriteLine("Inserisci il pH dell'acqua");
+            double phUtente = double.Parse(Console.ReadLine());
 
- 
+            bottle = new("H2o", "Frizzante", 2.00, 0.3, capienzaUtente, phUtente, "Monte");
+
+            return bottle;
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            Console.WriteLine("Reinserire i dati della bottiglia");
+        }
+        return bottle;
+
+    }
+}*/
+
+
