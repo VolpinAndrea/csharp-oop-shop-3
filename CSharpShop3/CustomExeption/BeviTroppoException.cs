@@ -18,4 +18,16 @@ namespace CSharpShop3.CustomExeption
 
         }
     }
+
+    internal class RiempiTroppoException : Exception
+    {
+        public RiempiTroppoException() : base()
+        {
+
+        }
+
+        public RiempiTroppoException(string message) : base(message)
+        {
+        }
+    }
 }

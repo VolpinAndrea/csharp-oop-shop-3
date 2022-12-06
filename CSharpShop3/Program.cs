@@ -9,6 +9,10 @@ Console.WriteLine("Quanto vuoi bere?");
 double sete = double.Parse(Console.ReadLine());
 uno.Bevi(sete);
 
+Console.WriteLine("Di quanto vuoi riempire?");
+double aggiungi = double.Parse(Console.ReadLine());
+uno.Riempi(aggiungi);
+
 
 
 // Conrtolli solo su questi 2 dati: pH e Capienza. Gli altri inseriti manualmente

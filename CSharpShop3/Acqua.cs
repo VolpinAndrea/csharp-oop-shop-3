@@ -63,21 +63,7 @@ namespace CSharpShop3
             {
                 this.capienza = newCapienza;
             }
-            //if (newCapienza >= 0 && newCapienza <= 1.5)
-            //{
-            //    this.capienza = newCapienza;
-            //}
-            //else if (newCapienza > 1.5)
-            //{
-            //    Console.WriteLine("troppa acqua insrita, settato a 1,5 Litri");
-            //    this.capienza = 1.5;
-            //}
-            //else
-            //{
-            //    Console.WriteLine("numero acqua non valido inserito 0 Litri");
-            //    this.capienza = 0;
-
-            //}
+            
         }
 
         public void Bevi(double quanto)
@@ -94,34 +80,22 @@ namespace CSharpShop3
             }
             else
             {
-                Console.WriteLine("--Hai bevuto " + quanto + "L ne rimangono " + string.Format("{0:F1}", this.capienza - quanto) + "L");
+                Console.WriteLine("Hai bevuto " + quanto + "L ne rimangono " + string.Format("{0:F1}", this.capienza - quanto) + "L");
                 this.capienza = capienza - quanto;   
             }
-            //if (quanto > capienza)
-            //{
-            //    Console.WriteLine("--Hai bevuto tutta l'acqua, e hai ancora sete!");
-            //    SetCapienza(0);
-            //}
-            //else if (quanto < 0)
-            //{
-            //    Console.WriteLine("--Hai inserito un numero non valido");
-            //}
-            //else
-            //{
-            //    Console.WriteLine("--Hai bevuto " + quanto + "L ne rimangono " + string.Format("{0:F1}", this.capienza - quanto) + "L");
-            //    this.capienza = capienza - quanto;
-            //}
+            
         }
         public void Riempi(double quanto)
         {
-            if (quanto + capienza > 1.5)
+            if (quanto < 0)
             {
-                Console.WriteLine("--Hai messo troppa acqua, la bottiglia è piena ma hai perso: " + (quanto + capienza - 1.5) + "L");
-                SetCapienza(1.5);
+                throw new ArgumentOutOfRangeException("Non puoi riempire in negativo. Non succede nulla");
             }
-            else if (quanto < 0)
+            else if (quanto + capienza > 2)
             {
-                Console.WriteLine("--Hai inserito un numero non valido la bottiglia rimane uguale");
+                double dato = quanto + capienza - 2;
+                SetCapienza(2);
+                throw new RiempiTroppoException("Hai messo troppa acqua, la bottiglia è piena ma hai perso: " + dato + "L");
             }
             else
             {
@@ -129,13 +103,6 @@ namespace CSharpShop3
                 this.capienza = capienza + quanto;
             }
         }
-
-        //public override void StampaTutto()
-        //{
-        //    base.StampaTutto();
-        //    Console.WriteLine("Capienza:" + string.Format("{0:F1}", (this.capienza)) + "L | Sorgente: " + sorgente + " | pH " + pH);
-        //    Console.WriteLine("-----------------------------------");
-        //}
 
         public override string? ToString()
         {

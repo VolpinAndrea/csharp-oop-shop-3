@@ -77,18 +77,6 @@ namespace CSharpShop3
             return this.codice + this.nome;
         }
 
-        //public virtual void StampaTutto()
-        //{
-        //    Console.WriteLine("Codice: " + this.codice);
-        //    Console.WriteLine("Nome: " + this.nome);
-        //    Console.WriteLine("Descrizione: " + descrizione); // senza this apposta
-        //    Console.WriteLine("Prezzo: " + this.prezzo);
-        //    Console.WriteLine("IVA: " + this.iva);
-        //    Console.WriteLine("Prezo con IVA : " + string.Format("{0:F2}", prezzoIva())); // taglia di decimali ma trasforma in string
-        //    Console.WriteLine("Nome esteso: " + nomeEsteso());
-
-        //}
-
         public override string? ToString()
         {
             return "Codice: " + this.codice + "\nNome: " + this.nome + "\nDescrizione: " + descrizione + "\nPrezzo: " + this.prezzo + "\nIVA: " + this.iva + "\nPrezo con IVA : " + string.Format("{0:F2}", prezzoIva()) + "\nNome esteso: " + nomeEsteso();
