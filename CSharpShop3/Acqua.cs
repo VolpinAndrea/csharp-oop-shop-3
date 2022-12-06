@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CSharpShop3.CustomExeption;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -60,7 +61,7 @@ namespace CSharpShop3
             }
             else
             {
-                this.pH = newCapienza;
+                this.capienza = newCapienza;
             }
             //if (newCapienza >= 0 && newCapienza <= 1.5)
             //{
@@ -81,20 +82,35 @@ namespace CSharpShop3
 
         public void Bevi(double quanto)
         {
-            if (quanto > capienza)
+            
+            if(quanto < 0)
             {
-                Console.WriteLine("--Hai bevuto tutta l'acqua, e hai ancora sete!");
-                SetCapienza(0);
+                throw new ArgumentOutOfRangeException("Non puoi bere in negativo. Non succede nulla");
             }
-            else if (quanto < 0)
+            else if (quanto > this.capienza)
             {
-                Console.WriteLine("--Hai inserito un numero non valido");
+                SetCapienza(0);
+                throw new BeviTroppoException("hai bevuto troppo!. Hai ancora sete");
             }
             else
             {
                 Console.WriteLine("--Hai bevuto " + quanto + "L ne rimangono " + string.Format("{0:F1}", this.capienza - quanto) + "L");
-                this.capienza = capienza - quanto;
+                this.capienza = capienza - quanto;   
             }
+            //if (quanto > capienza)
+            //{
+            //    Console.WriteLine("--Hai bevuto tutta l'acqua, e hai ancora sete!");
+            //    SetCapienza(0);
+            //}
+            //else if (quanto < 0)
+            //{
+            //    Console.WriteLine("--Hai inserito un numero non valido");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("--Hai bevuto " + quanto + "L ne rimangono " + string.Format("{0:F1}", this.capienza - quanto) + "L");
+            //    this.capienza = capienza - quanto;
+            //}
         }
         public void Riempi(double quanto)
         {

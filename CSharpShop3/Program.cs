@@ -3,7 +3,15 @@ using CSharpShop3;
 
 
 Acqua uno = CreaBottiglia();
+Console.WriteLine(uno.ToString());
 
+Console.WriteLine("Quanto vuoi bere?");
+double sete = double.Parse(Console.ReadLine());
+uno.Bevi(sete);
+
+
+
+// Conrtolli solo su questi 2 dati: pH e Capienza. Gli altri inseriti manualmente
 static Acqua? CreaBottiglia()
 {
     //bool controllo = true;
@@ -18,7 +26,6 @@ static Acqua? CreaBottiglia()
 
             Acqua bottle = new("H2o", "Frizzante", 2.00, 0.3, capienzaUtente, phUtente, "Monte");
             //controllo = false;
-            Console.WriteLine(bottle.ToString());
 
             return bottle;
 
@@ -26,7 +33,7 @@ static Acqua? CreaBottiglia()
         catch (Exception e)
         {
             Console.WriteLine(e.Message);
-            Console.WriteLine("Reinserisci il pH tra 0 e 10");
+            Console.WriteLine("Reinserire i dati della bottiglia");
         }
         //return null;
 
